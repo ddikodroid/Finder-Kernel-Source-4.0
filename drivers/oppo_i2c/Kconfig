@@ -1,0 +1,26 @@
+menuconfig OPPO_GPIOI2C
+	tristate "oppo gpio simulate i2c support"
+	default n
+	help
+	  Say Y here to enable gpio simulate i2c support. there are two
+	  simulated i2c bus,oppo_gpio_i2c0 use pm8058-gpio14 as scl,
+	  pm8058-gpio31 as sda,oppo_gpio_i2c1 use pm8058-gpio8 for scl,
+	  pm8058-gpio15 for sda.
+
+if OPPO_GPIOI2C
+
+config OPPO_GPIOI2C0
+	tristate "oppo gpio i2c0"
+	default n
+	depends on OPPO_GPIOI2C
+	help
+	  Say Y here to enable oppo gpio i2c0
+
+config OPPO_GPIOI2C1
+	tristate "oppo gpio i2c1"
+	default n
+	depends on OPPO_GPIOI2C
+	help
+	  Say Y here to enable oppo gpio i2c1
+
+endif # OPPO_GPIOI2C
